@@ -29,6 +29,7 @@ nodes.nodeTypes = {
 	WEB: "WEB",
 	MIX: "MIX",
 	REOSC: "REOSC",
+	GANGNAM: "GANGNAM",
 	Custom: "CUSTOM ETH"
 };
 nodes.ensNodeTypes = [nodes.nodeTypes.ETH, nodes.nodeTypes.Ropsten];
@@ -474,6 +475,19 @@ nodes.nodeList = {
 		estimateGas: true,
 		service: "REOSC Ecosystem",
 		lib: new nodes.customNode("https://remote.reosc.io", "3000")
+	},
+	gangnam: {
+		name: "GANGNAM",
+		blockExplorerTX: "https://explorer.progtest.net/tx/[[txHash]]",
+		blockExplorerAddr: "https://explorer.progtest.net/addr/[[address]]",
+		type: nodes.nodeTypes.GANGNAM,
+		eip155: true,
+		chainId: 43568,
+		tokenList: require("./tokens/gangnamTokens.json"),
+		abiList: require("./abiDefinitions/gangnamAbi.json"),
+		estimateGas: true,
+		service: "GANGNAM ProgPOW Testnet",
+		lib: new nodes.customNode("https://geth-api.greerso.com", "")
 	}
 };
 
